@@ -1,27 +1,54 @@
 ## Functions
 
-### Admin
+### Common
 
 1. Connect wallet
-2. Regist restroom
-3. Get Restroom list
-4. Delete restroom
+2. Restroom List (R)
+3. Restroom Detail (R)
+   - Review List (R)
 
-## Data
+### Admin
 
-### Register RestRoom
+1. Restroom (C, U, D)
+
+### User
+
+1. Use Toilet
+   - Pay & Transfer
+2. Left Toilet
+   - Pay(if needed) & Transfer
+   - Recharge(if needed)
+3. Review (C, R)
+
+## Properties
+
+'\*' mark means cannot be duplicated
+
+### Restroom
 
 ```
 {
-  name: string "name of restroom"
+  *name: string "name of restroom"
   location: { lat: latitude, lon: longitude }
   type : {key = type, value = number of toilet}
-        keys [man, woman, together, disabled]
-    ex) Man-Only 2 => type = {man:2}
-    ex) Man 2, Woman 3, Man-disabled 1 => type : {man:2, woman:3, disabled:{man:1}}
-    ex) 남여공용 화장실 2칸 type : {together:2}
+        keys [man, woman, unisex, disabled]
+      ex) Man-Only 2 => type = {man:2}
+      ex) Man 2, Woman 3, Man-disabled 1 => type : {man:2, woman:3, disabled:{man:1}}
+      ex) Unisex 2 type : {unisex:2}
   entranceFee : number "fee to pay when entrance the restroom"
   additionalFee : number "fee to pay if stay longer than X minutes"
-  cleanGrade : number "grade shows how much it is clean"
+  cleanScore : number [1 ~ 5] "score shows how much it is clean"
+}
+```
+
+### Review Comment
+
+```
+{
+  id : string "user wallet address"
+  restroom id : string "name of restroom"
+  cleanScore : number [1 ~ 5] "score shows how much it is clean"
+  detail : string "comments about the restroom"
+  createDate : "yyyy-mm-dd hh:mm:ss"
 }
 ```
