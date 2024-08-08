@@ -46,7 +46,7 @@
 ```
 {
   id : string "user wallet address"
-  restroom id : string "name of restroom"
+  restroomId : string "name of restroom"
   cleanScore : number [1 ~ 5] "score shows how much it is clean"
   detail : string "comments about the restroom"
   createDate : "yyyy-mm-dd hh:mm:ss"
