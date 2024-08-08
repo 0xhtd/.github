@@ -38,6 +38,7 @@
   entranceFee : number "fee to pay when entrance the restroom"
   additionalFee : number "fee to pay if stay longer than X minutes"
   cleanScore : number [1 ~ 5] "score shows how much it is clean"
+  status : string ["working","repairing","cleaning","disabled"]
 }
 ```
 
